@@ -147,7 +147,14 @@ class HermesConversationEntity(
         if not self.available:
             self._attr_available = True
             self.async_write_ha_state()
-        return conversation.async_get_result_from_chat_log(user_input, chat_log)
+        result = conversation.async_get_result_from_chat_log(user_input, chat_log)
+        # Keep the voice satellite listening after the reply so a follow-up
+        # question doesn't need the wake word again. Home Assistant forwards this
+        # flag to the satellite (ESPHOME intent-end -> continue_conversation),
+        # which re-opens the microphone on the same conversation instead of going
+        # idle. Local fork change: upstream hardcodes this to False.
+        result.continue_conversation = True
+        return result
 
     async def _async_complete_response(
         self,

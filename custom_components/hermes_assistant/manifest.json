@@ -5,10 +5,10 @@
   "codeowners": ["@RichiCoder1"],
   "config_flow": true,
   "dependencies": ["conversation"],
-  "documentation": "https://github.com/RichiCoder1/hermes-assistant",
+  "documentation": "https://github.com/navidmx/hermes-assistant",
   "integration_type": "service",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/RichiCoder1/hermes-assistant/issues",
+  "issue_tracker": "https://github.com/navidmx/hermes-assistant/issues",
   "requirements": [],
-  "version": "0.5.0"
+  "version": "0.5.1"
 }
